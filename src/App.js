@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import ApiService from "./services/ApiService";
-import Logo from "./views/layouts/Logo";
+import Header from "./views/layouts/Header";
 
 export default class App extends Component {
   apiService = new ApiService();
@@ -12,14 +12,7 @@ export default class App extends Component {
   render() {
     return (
       <div className="app">
-        {/* <Header>
-          <Logo />
-          <Nav>
-            <NavItem route="books" title="Books" />
-            <NavItem route="characters" title="Characters" />
-          </Nav>
-        </Header> */}
-        <Logo />
+        <Header />
       </div>
     );
   }

@@ -1,13 +1,13 @@
 import React from "react";
 import styled from "styled-components";
-import { LogoImage, LogoText } from "../elements";
+import { LogoImage, LogoText, A } from "../elements";
 import StarkIcon from "../../img/stark-icon.png";
 
 const Logo = ({ className }) => (
-  <a href="#" className={className}>
+  <A href="#" className={className}>
     <LogoImage src={StarkIcon} />
     <LogoText>IceAndFire</LogoText>
-  </a>
+  </A>
 );
 
 export default styled(Logo)`
