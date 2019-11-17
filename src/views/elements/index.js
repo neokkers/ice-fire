@@ -1,2 +1,2 @@
 export * from "./Images";
-export * from "./Logos";
+export * from "./Texts";
