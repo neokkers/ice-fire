@@ -5,6 +5,7 @@ import Logo from "../modules/Logo";
 import { Container } from "../elements";
 import { withColors } from "../utils";
 import NavContainer from "../../containers/NavContainer";
+import ThemeToggler from "../../containers/ThemeToggler";
 
 const Header = ({ className }) => {
   return (
@@ -12,6 +13,7 @@ const Header = ({ className }) => {
       <Container flex={{ justify: "space-between", align: "center" }}>
         <Logo />
         <NavContainer />
+        <ThemeToggler />
       </Container>
     </header>
   );

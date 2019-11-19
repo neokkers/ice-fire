@@ -10,7 +10,7 @@ lightTheme.colors = {
 };
 darkTheme.colors = {
   primary: "white",
-  accent: "#5290f2",
+  accent: "tomato",
   secondary: "#999",
   bgPrimary: "#333",
   danger: "blue"
