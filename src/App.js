@@ -1,43 +1,39 @@
-import React, { Component } from "react";
+import React from "react";
 import ApiService from "./services/ApiService";
 import { Route, Redirect, Switch } from "react-router-dom";
-import { connect } from "react-redux";
 import Header from "./views/layouts/Header";
-import { setTheme } from "./actions/themeActions";
-import { darkTheme } from "./views/themes";
 
-class App extends Component {
-  apiService = new ApiService();
+const App = ({ className }) => {
+  // apiService = new ApiService();
 
-  async componentDidMount() {
-    const items = await this.apiService.getResource("books");
-    console.log(items);
-  }
-  render() {
-    return (
-      <div className="app">
-        <Switch>
-          <Route
-            path="/:type"
-            render={props => {
-              if (
-                !["books", "characters", "houses"].includes(
-                  props.match.params.type
-                )
+  // async componentDidMount() {
+  //   const items = await this.apiService.getResource("books");
+  //   console.log(items);
+  // }
+
+  return (
+    <div className={className}>
+      <Switch>
+        <Route
+          path="/:type"
+          render={props => {
+            if (
+              !["books", "characters", "houses"].includes(
+                props.match.params.type
               )
-                return <div>404</div>;
-              return (
-                <>
-                  <Header />
-                </>
-              );
-            }}
-          ></Route>
-          <Redirect from="/" exact to="/books" />
-        </Switch>
-      </div>
-    );
-  }
-}
+            )
+              return <div>404</div>;
+            return (
+              <>
+                <Header />
+              </>
+            );
+          }}
+        ></Route>
+        <Redirect from="/" exact to="/books" />
+      </Switch>
+    </div>
+  );
+};
 
-export default connect(null, { setTheme })(App);
+export default App;
