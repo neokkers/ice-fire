@@ -3,12 +3,14 @@ export const darkTheme = {};
 
 lightTheme.colors = {
   primary: "#222",
+  accent: "#5290f2",
   secondary: "#999",
   bgPrimary: "#eee",
   danger: "tomato"
 };
 darkTheme.colors = {
   primary: "white",
+  accent: "#5290f2",
   secondary: "#999",
   bgPrimary: "#333",
   danger: "blue"

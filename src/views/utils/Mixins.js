@@ -4,8 +4,11 @@ import { css } from "styled-components";
 export const logoFont = css`
   font-family: "Cinzel", serif;
 `;
-export const mainFont = css`
+/* export const mainFont = css`
   font-family: "Arimo", sans-serif;
+`; */
+export const mainFont = css`
+  font-family: "Cinzel", serif;
 `;
 
 // Color mixins

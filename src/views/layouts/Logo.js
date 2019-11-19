@@ -6,7 +6,7 @@ import StarkIcon from "../../img/stark-icon.png";
 import { withColors } from "../utils";
 
 const Logo = ({ className }) => (
-  <Link href="#" className={className}>
+  <Link to="/books" className={className}>
     <LogoImage src={StarkIcon} />
     <LogoText>IceAndFire</LogoText>
   </Link>

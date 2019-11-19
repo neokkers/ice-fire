@@ -1,9 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
 import App from "./App";
 import { BrowserRouter as Router, withRouter } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
+import { GlobalStyle } from "./views/utils";
 
 import { createStore } from "redux";
 import { Provider, connect } from "react-redux";
@@ -20,6 +20,7 @@ class Root extends React.Component {
     return (
       <ThemeProvider theme={theme}>
         <App />
+        <GlobalStyle />
       </ThemeProvider>
     );
   }
