@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { LogoImage, LogoText, A } from "../elements";
 import StarkIcon from "../../img/stark-icon.png";
+import { withColors } from "../utils";
 
 const Logo = ({ className }) => (
   <A href="#" className={className}>
@@ -20,5 +21,6 @@ export default styled(Logo)`
   }
   ${LogoText} {
     font-size: 1.3rem;
+    ${withColors}
   }
 `;

@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Logo from "./Logo";
+import { withColors } from "../utils";
 
 const Header = ({ className }) => {
   return (
@@ -17,4 +18,5 @@ export default styled(Header)`
   justify-content: space-between;
   height: 70px;
   padding: 0 2rem;
+  ${withColors}
 `;
