@@ -7,19 +7,19 @@ export const Nav = styled.nav`
   display: flex;
   align-items: center;
   a {
-    margin: 0 2rem;
+    margin-left: 2rem;
   }
 `;
 
-const NavItem = ({ className, to, children }) => {
+const Item = ({ className, to, title }) => {
   return (
     <Link className={className} to={to}>
-      {children}
+      {title}
     </Link>
   );
 };
 
-export const StyledNavItem = styled(NavItem)`
+export const NavItem = styled(Item)`
   /* ${withColors} */
   font-weight: bold;
   ${props =>
