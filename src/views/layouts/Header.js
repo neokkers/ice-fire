@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { withRouter } from "react-router-dom";
 import Logo from "../modules/Logo";
-import { Container } from "../elements";
+import { Container } from "../layouts/Container";
 import { withColors } from "../utils";
 import NavContainer from "../../containers/NavContainer";
 import ThemeToggler from "../../containers/ThemeToggler";

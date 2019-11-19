@@ -4,11 +4,10 @@ import styled from "styled-components";
 const Toggler = styled.div`
   width: 2rem;
   height: 2rem;
-  border-radius: 5px;
+  border-radius: 50%;
   overflow: hidden;
   position: relative;
   cursor: pointer;
-  /* border: 1px solid white; */
   > div {
     height: 2rem;
     width: 3rem;
@@ -35,19 +34,15 @@ const Toggler = styled.div`
 `;
 
 class TogglerWidget extends Component {
-  state = {
-    toggled: false
-  };
   onToggle = () => {
-    const { toggled } = this.state;
+    const { toggled } = this.props;
     const { onToggle, onUntoggle } = this.props;
 
     toggled ? onUntoggle() : onToggle();
-    this.setState({ toggled: !toggled });
   };
   render() {
     return (
-      <Toggler onClick={this.onToggle} toggled={this.state.toggled}>
+      <Toggler onClick={this.onToggle} toggled={this.props.toggled}>
         <div>
           <div></div>
           <div></div>
