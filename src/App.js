@@ -1,9 +1,12 @@
 import React, { Component } from "react";
 import ApiService from "./services/ApiService";
 import { Route, Redirect, Switch } from "react-router-dom";
+import { connect } from "react-redux";
 import Header from "./views/layouts/Header";
+import { setTheme } from "./actions/themeActions";
+import { darkTheme } from "./views/themes";
 
-export default class App extends Component {
+class App extends Component {
   apiService = new ApiService();
 
   async componentDidMount() {
@@ -36,3 +39,5 @@ export default class App extends Component {
     );
   }
 }
+
+export default connect(null, { setTheme })(App);
