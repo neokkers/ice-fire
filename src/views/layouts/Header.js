@@ -1,26 +1,17 @@
 import React from "react";
 import styled from "styled-components";
 import { withRouter } from "react-router-dom";
-import Logo from "./Logo";
+import Logo from "../modules/Logo";
 import { Container } from "../elements";
 import { withColors } from "../utils";
-import { Nav, NavItem } from "./Nav";
+import NavContainer from "../../containers/NavContainer";
 
-const Header = ({ className, match }) => {
-  const { type } = match.params;
+const Header = ({ className }) => {
   return (
     <header className={className}>
       <Container flex={{ justify: "space-between", align: "center" }}>
         <Logo />
-        <Nav>
-          <NavItem to="/books" title="Books" selected={type === "books"} />
-          <NavItem
-            to="/characters"
-            title="Characters"
-            selected={type === "characters"}
-          />
-          <NavItem to="/houses" title="Houses" selected={type === "houses"} />
-        </Nav>
+        <NavContainer />
       </Container>
     </header>
   );
