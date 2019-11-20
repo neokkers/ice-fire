@@ -5,7 +5,6 @@ import TogglerWidget from "../views/modules/TogglerWidget";
 import { lightTheme, darkTheme } from "../views/themes";
 
 export const ThemeToggler = ({ setTheme, theme }) => {
-  console.log(theme);
   return (
     <TogglerWidget
       toggled={theme.name === "dark"}
