@@ -5,13 +5,17 @@ import { BrowserRouter as Router, withRouter } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import { GlobalStyle } from "./views/utils";
 
-import { createStore } from "redux";
+import { createStore, applyMiddleware } from "redux";
+import thunk from "redux-thunk";
 import { Provider, connect } from "react-redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 
 import rootReducer from "./reducers";
 
-const store = createStore(rootReducer, composeWithDevTools());
+const store = createStore(
+  rootReducer,
+  composeWithDevTools(applyMiddleware(thunk))
+);
 
 class Root extends React.Component {
   render() {
@@ -40,3 +44,5 @@ ReactDOM.render(
   </Provider>,
   document.getElementById("root")
 );
+
+// store.dispatch(fetchMaterialList("books"));

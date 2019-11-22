@@ -1,7 +1,14 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { fetchMaterialList } from "../actions/materialsActions";
 
-export default class ItemList extends Component {
+class ItemList extends Component {
+  componentDidMount() {
+    this.props.fetchMaterialList("houses");
+  }
   render() {
-    return <div></div>;
+    return <div>ItemList</div>;
   }
 }
+
+export default connect(null, { fetchMaterialList })(ItemList);

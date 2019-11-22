@@ -1,8 +1,13 @@
 import React from "react";
 import styled from "styled-components";
+import ItemList from "../../containers/ItemList";
 
 const InfoSection = ({ className }) => {
-  return <div className={className}></div>;
+  return (
+    <div className={className}>
+      <ItemList />
+    </div>
+  );
 };
 
 export default styled(InfoSection)`

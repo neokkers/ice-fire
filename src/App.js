@@ -1,16 +1,9 @@
 import React from "react";
-import ApiService from "./services/ApiService";
 import { Route, Redirect, Switch } from "react-router-dom";
 import Header from "./views/layouts/Header";
+import InfoSection from "./views/layouts/InfoSection";
 
 const App = ({ className }) => {
-  // apiService = new ApiService();
-
-  // async componentDidMount() {
-  //   const items = await this.apiService.getResource("books");
-  //   console.log(items);
-  // }
-
   return (
     <div className={className}>
       <Switch>
@@ -26,6 +19,7 @@ const App = ({ className }) => {
             return (
               <>
                 <Header />
+                <InfoSection />
               </>
             );
           }}
