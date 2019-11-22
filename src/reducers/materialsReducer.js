@@ -10,9 +10,9 @@ const initialState = {
   },
   single: {
     loading: false,
-    book: null,
-    character: null,
-    house: null,
+    books: null,
+    characters: null,
+    houses: null,
     error: null
   }
 };
@@ -37,6 +37,14 @@ export const materialsReducer = (state = initialState, action) => {
           [action.payload.type]: action.payload.data
         }
       };
+    case actionTypes.MATERIALS_LIST_ERROR:
+      return {
+        ...state,
+        lists: {
+          ...state.lists,
+          error: action.payload
+        }
+      };
 
     // sinlge
     case actionTypes.MATERIALS_SINGLE_REQ:
@@ -52,7 +60,16 @@ export const materialsReducer = (state = initialState, action) => {
         ...state,
         single: {
           ...state.single,
-          loading: true
+          loading: true,
+          [action.payload.type]: action.payload.data
+        }
+      };
+    case actionTypes.MATERIALS_SINGLE_ERROR:
+      return {
+        ...state,
+        single: {
+          ...state.single,
+          error: action.payload
         }
       };
     default:
