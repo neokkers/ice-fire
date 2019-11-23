@@ -5,7 +5,6 @@ export const GlobalStyle = createGlobalStyle`
   
   html {
     scroll-behavior: smooth;
-    ${mainFont}
     font-size: 16px;
     line-height: 1.3;
     @media screen and (max-width: 1300px) {
@@ -25,6 +24,7 @@ export const GlobalStyle = createGlobalStyle`
   * {
     color: ${props => props.theme.colors.primary};
     box-sizing: border-box;
+    ${mainFont}
   }
   input, button, video {
     outline: none;

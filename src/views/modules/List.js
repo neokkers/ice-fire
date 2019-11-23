@@ -5,12 +5,12 @@ import shortid from "shortid";
 
 const ListItem = styled.li`
   padding: 1rem 2rem;
-  border-left: 1px solid ${props => props.theme.colors.primary};
+  border-left: 2px solid ${props => props.theme.colors.bgPrimary};
   cursor: pointer;
   ${withColors};
   &:hover {
     color: ${props => props.theme.colors.accent};
-    border-left: 1px solid ${props => props.theme.colors.accent};
+    border-left: 2px solid ${props => props.theme.colors.accent};
   }
 `;
 
