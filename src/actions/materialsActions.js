@@ -5,7 +5,9 @@ import ErrMsgService from "../services/ErrMsgService";
 const apiService = new ApiService();
 const errMsgService = new ErrMsgService();
 
-// List
+/**
+ * Materials List
+ **/
 const materialsListReq = () => ({ type: actionTypes.MATERIALS_LIST_REQ });
 
 const materialsListSuccess = (type, data) => ({
@@ -27,6 +29,7 @@ export const fetchMaterialList = type => {
     apiService
       .getResource(type)
       .then(r => {
+        console.log(r);
         dispatch(materialsListSuccess(type, r.data));
       })
       .catch(err => {
@@ -35,7 +38,9 @@ export const fetchMaterialList = type => {
   };
 };
 
-// Single
+/**
+ * Materials Single
+ **/
 const materialsSingleReq = () => ({ type: actionTypes.MATERIALS_SINGLE_REQ });
 
 const materialsSingleSuccess = (type, data) => ({

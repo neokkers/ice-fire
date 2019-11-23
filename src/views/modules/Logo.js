@@ -19,6 +19,7 @@ export default styled(Logo)`
   text-decoration: none;
   ${LogoImage} {
     margin-right: 0.5rem;
+    margin-left: -7px;
   }
   ${LogoText} {
     font-size: 1.3rem;

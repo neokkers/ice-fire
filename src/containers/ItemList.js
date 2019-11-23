@@ -4,16 +4,30 @@ import {
   fetchMaterialList,
   fetchMaterialSingle
 } from "../actions/materialsActions";
+import { withRouter } from "react-router-dom";
+import List from "../views/modules/List";
 
 class ItemList extends Component {
   componentDidMount() {
-    this.props.fetchMaterialSingle("houses", 2222);
+    const { match } = this.props;
+    this.props.fetchMaterialList(match.params.type);
   }
   render() {
-    return <div>ItemList</div>;
+    const { materials, match } = this.props;
+    return (
+      <List
+        items={materials.lists[match.params.type]}
+        renderF={item => item.name}
+      />
+    );
   }
 }
 
-export default connect(null, { fetchMaterialList, fetchMaterialSingle })(
-  ItemList
-);
+const mapStateToProps = state => ({
+  materials: state.materials
+});
+
+export default connect(mapStateToProps, {
+  fetchMaterialList,
+  fetchMaterialSingle
+})(withRouter(ItemList));
