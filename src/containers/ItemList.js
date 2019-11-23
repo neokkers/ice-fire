@@ -8,15 +8,15 @@ import { withRouter } from "react-router-dom";
 import List from "../views/modules/List";
 
 class ItemList extends Component {
-  componentDidMount() {
-    const { match } = this.props;
-    this.props.fetchMaterialList(match.params.type);
+  async componentDidMount() {
+    const { match, fetchMaterialList } = this.props;
+    fetchMaterialList(match.params.type, 1);
   }
   render() {
     const { materials, match } = this.props;
     return (
       <List
-        items={materials.lists[match.params.type]}
+        items={materials.lists[match.params.type].data}
         renderF={item => item.name}
       />
     );

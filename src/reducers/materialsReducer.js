@@ -3,9 +3,18 @@ import * as actionTypes from "../actions/types";
 const initialState = {
   lists: {
     loading: false,
-    books: null,
-    characters: null,
-    houses: null,
+    books: {
+      data: null,
+      next: null
+    },
+    characters: {
+      data: null,
+      next: null
+    },
+    houses: {
+      data: null,
+      next: null
+    },
     error: null
   },
   single: {
@@ -34,7 +43,15 @@ export const materialsReducer = (state = initialState, action) => {
         lists: {
           ...state.lists,
           loading: false,
-          [action.payload.type]: action.payload.data
+          [action.payload.type]: {
+            data: state.lists[action.payload.type].data
+              ? [
+                  ...state.lists[action.payload.type].data,
+                  ...action.payload.data
+                ]
+              : action.payload.data,
+            next: action.payload.next
+          }
         }
       };
     case actionTypes.MATERIALS_LIST_ERROR:

@@ -16,7 +16,6 @@ const ListItem = styled.li`
 
 const List = ({ className, items, onClick, renderF }) => {
   if (!items) return null;
-  console.log(items);
   return (
     <ul className={className}>
       {items.map(el => (

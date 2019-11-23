@@ -10,11 +10,12 @@ const errMsgService = new ErrMsgService();
  **/
 const materialsListReq = () => ({ type: actionTypes.MATERIALS_LIST_REQ });
 
-const materialsListSuccess = (type, data) => ({
+const materialsListSuccess = (type, data, next) => ({
   type: actionTypes.MATERIALS_LIST_SUCCESS,
   payload: {
     type,
-    data
+    data,
+    next
   }
 });
 
@@ -23,14 +24,15 @@ const materialsListError = type => ({
   payload: errMsgService.getMsgByType(type)
 });
 
-export const fetchMaterialList = type => {
+export const fetchMaterialList = (type, page) => {
   return dispatch => {
     dispatch(materialsListReq());
     apiService
-      .getResource(type)
+      .getList(type, page)
       .then(r => {
-        console.log(r);
-        dispatch(materialsListSuccess(type, r.data));
+        console.log(r.headers.link);
+        let next = r.headers.link.includes("next") ? ++page : null;
+        dispatch(materialsListSuccess(type, r.data, next));
       })
       .catch(err => {
         dispatch(materialsListError(type));

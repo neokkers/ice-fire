@@ -9,6 +9,8 @@ export default class ApiService {
       .then(r => r)
       .catch(console.log);
 
-  getResource = (type, id) =>
-    this.sendRequest(`${this._apiBase}/${type}${id ? `/${id}` : ""}`);
+  getList = (type, page) =>
+    this.sendRequest(`${this._apiBase}/${type}${page ? `?page=${page}` : ""}`);
+
+  getSingle = (type, id) => this.sendRequest(`${this._apiBase}/${type}/${id}`);
 }
