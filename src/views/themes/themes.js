@@ -1,8 +1,19 @@
 export const lightTheme = {};
 export const darkTheme = {};
 
+const spaces = {
+  xs: "0.5rem",
+  s: "0.9rem",
+  m: "1.5rem",
+  l: "2rem",
+  xl: "3rem"
+};
+
 lightTheme.name = "light";
 darkTheme.name = "dark";
+
+lightTheme.spaces = spaces;
+darkTheme.spaces = spaces;
 
 lightTheme.colors = {
   primary: "#222",

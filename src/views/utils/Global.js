@@ -1,5 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-import { mainFont } from "./Mixins";
+import { mainFont, withSpaces } from "./Mixins";
 
 export const GlobalStyle = createGlobalStyle`
   
@@ -25,6 +25,7 @@ export const GlobalStyle = createGlobalStyle`
     color: ${props => props.theme.colors.primary};
     box-sizing: border-box;
     ${mainFont}
+    /* ${withSpaces} */
   }
   input, button, video {
     outline: none;

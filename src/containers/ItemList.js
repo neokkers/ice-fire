@@ -6,7 +6,7 @@ import {
 } from "../actions/materialsActions";
 import { withRouter } from "react-router-dom";
 import List from "../views/modules/List";
-import { Button } from "../views/elements";
+import { Button, Title } from "../views/elements";
 
 class ItemList extends Component {
   componentDidMount() {
@@ -28,6 +28,9 @@ class ItemList extends Component {
 
     return (
       <div>
+        <Title m mb="m" accent>
+          {match.params.type}
+        </Title>
         <List
           items={materials.lists[match.params.type].data}
           selected={materials.single[match.params.type]}

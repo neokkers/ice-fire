@@ -29,3 +29,35 @@ export const withFlex = css`
       align-items: ${props.flex.align};
     `}
 `;
+export const withSpaces = css`
+  ${props =>
+    props.mt &&
+    css`
+      margin-top: ${props.theme.spaces[props.mt]};
+    `}
+  ${props =>
+    props.mb &&
+    css`
+      margin-bottom: ${props.theme.spaces[props.mb]};
+    `}
+  ${props =>
+    props.ml &&
+    css`
+      margin-left: ${props.theme.spaces[props.ml]};
+    `}
+  ${props =>
+    props.mr &&
+    css`
+      margin-right: ${props.theme.spaces[props.mr]};
+    `}
+  ${props =>
+    props.my &&
+    css`
+      margin: ${props.theme.spaces[props.my]} 0;
+    `}
+  ${props =>
+    props.mx &&
+    css`
+      margin: 0 ${props.theme.spaces[props.mx]};
+    `}
+`;
