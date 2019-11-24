@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import withCatch from "./hoc/WithCatch";
 import {
   fetchMaterialList,
   fetchMaterialSingle
@@ -11,11 +12,15 @@ import { Button, Title } from "../views/elements";
 class ItemList extends Component {
   componentDidMount() {
     const { match, fetchMaterialList } = this.props;
-    fetchMaterialList(match.params.type, 1);
+    // fetchMaterialList(match.params.type, 1);
+    fetchMaterialList("bookss", 1);
   }
 
   componentDidUpdate(prevProps) {
     const { match, fetchMaterialList, materials } = this.props;
+
+    if (materials.lists.error) throw new Error();
+
     if (prevProps.match.params.type !== match.params.type) {
       if (!materials.lists[match.params.type].data)
         fetchMaterialList(match.params.type, 1);
@@ -53,4 +58,4 @@ const mapStateToProps = state => ({
 export default connect(mapStateToProps, {
   fetchMaterialList,
   fetchMaterialSingle
-})(withRouter(ItemList));
+})(withRouter(withCatch(ItemList)));
