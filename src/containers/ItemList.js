@@ -7,13 +7,13 @@ import {
 } from "../actions/materialsActions";
 import { withRouter } from "react-router-dom";
 import List from "../views/modules/List";
-import { Button, Title } from "../views/elements";
+import { Button, Title, Spinner } from "../views/elements";
 
 class ItemList extends Component {
   componentDidMount() {
     const { match, fetchMaterialList } = this.props;
-    // fetchMaterialList(match.params.type, 1);
-    fetchMaterialList("bookss", 1);
+    fetchMaterialList(match.params.type, 1);
+    // fetchMaterialList("bookss", 1);
   }
 
   componentDidUpdate(prevProps) {
@@ -30,21 +30,31 @@ class ItemList extends Component {
   render() {
     const { materials, match, fetchMaterialList } = this.props;
     const next = materials.lists[match.params.type].next;
+    const spinnerVisible =
+      !materials.lists[match.params.type].data && materials.lists.loading;
 
     return (
       <div>
         <Title m mb="m" accent>
           {match.params.type}
         </Title>
-        <List
-          items={materials.lists[match.params.type].data}
-          selected={materials.single[match.params.type]}
-          renderF={item => (item.name ? item.name : "Unknown")}
-        />
-        {next && (
-          <Button onClick={() => fetchMaterialList(match.params.type, next)}>
-            More
-          </Button>
+        {spinnerVisible ? (
+          <Spinner />
+        ) : (
+          <>
+            <List
+              items={materials.lists[match.params.type].data}
+              selected={materials.single[match.params.type]}
+              renderF={item => (item.name ? item.name : "Unknown")}
+            />
+            {next && (
+              <Button
+                onClick={() => fetchMaterialList(match.params.type, next)}
+              >
+                More
+              </Button>
+            )}
+          </>
         )}
       </div>
     );

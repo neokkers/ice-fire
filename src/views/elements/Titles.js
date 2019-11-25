@@ -2,6 +2,7 @@ import styled, { css } from "styled-components";
 import { withSpaces } from "../utils";
 
 export const Title = styled.h3`
+  margin: 0;
   ${props =>
     props.m &&
     css`
@@ -22,4 +23,5 @@ export const Title = styled.h3`
     css`
       color: ${props.theme.colors.accent};
     `}
+  ${withSpaces}
 `;

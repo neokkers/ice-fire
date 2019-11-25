@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Title } from "../../views/elements";
 
 function withCatch(WrappedComponent) {
   return class extends Component {
@@ -15,7 +16,12 @@ function withCatch(WrappedComponent) {
 
     render() {
       const { error } = this.state;
-      if (error) return <div>Oops, something goes wrong with servers</div>;
+      if (error)
+        return (
+          <Title m accent>
+            Oops, something goes wrong with servers
+          </Title>
+        );
       return <WrappedComponent {...this.props} />;
     }
   };

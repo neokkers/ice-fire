@@ -25,7 +25,7 @@ export const GlobalStyle = createGlobalStyle`
     color: ${props => props.theme.colors.primary};
     box-sizing: border-box;
     ${mainFont}
-    ${withSpaces}
+    /* ${withSpaces} */
   }
   input, button, video {
     outline: none;
