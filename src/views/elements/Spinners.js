@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 const StyledSpinner = styled.div`
   @keyframes ldio-11ijs70r4dsd {
@@ -12,23 +12,58 @@ const StyledSpinner = styled.div`
   }
   > div > div {
     position: absolute;
-    width: 36px;
-    height: 36px;
-    border: 4px solid ${props => props.theme.colors.accent};
+    /* width: 36px; */
+    /* height: 36px; */
+    ${props =>
+      props.white
+        ? css`
+            border: 4px solid white;
+          `
+        : css`
+            border: 4px solid ${props => props.theme.colors.accent};
+          `}
+    
+    /* border-color: 4px solid ${props => props.white && "white"}; */
     border-top-color: transparent;
     border-radius: 50%;
   }
   > div > div {
     animation: ldio-11ijs70r4dsd 1s linear infinite;
-    top: 23px;
-    left: 23px;
+    /* top: 23px; */
+    /* left: 23px; */
   }
 
-  width: 46px;
-  height: 46px;
+  /* width: 46px; */
+  /* height: 46px; */
+
+  ${props =>
+    props.small &&
+    css`
+      > div > div {
+        width: 12px;
+        height: 12px;
+        top: 12px;
+        left: 12px;
+      }
+      width: 25px;
+      height: 25px;
+    `}
+  ${props =>
+    props.big &&
+    css`
+      > div > div {
+        width: 36px;
+        height: 36px;
+        top: 23px;
+        left: 23px;
+      }
+      width: 46px;
+      height: 46px;
+    `}
+
   display: inline-block;
   overflow: hidden;
-  background: #ffffff;
+  /* background: #ffffff; */
 
   > div {
     width: 100%;
@@ -42,9 +77,9 @@ const StyledSpinner = styled.div`
     box-sizing: content-box;
   }
 `;
-export const Spinner = () => {
+export const Spinner = ({ className, ...props }) => {
   return (
-    <StyledSpinner>
+    <StyledSpinner className={className} {...props}>
       <div>
         <div></div>
       </div>

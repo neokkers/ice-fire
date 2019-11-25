@@ -7,7 +7,7 @@ import {
 } from "../actions/materialsActions";
 import { withRouter } from "react-router-dom";
 import List from "../views/modules/List";
-import { Button, Title, Spinner } from "../views/elements";
+import { Button, Title, Spinner, ButtonWithSpinner } from "../views/elements";
 
 class ItemList extends Component {
   componentDidMount() {
@@ -39,7 +39,7 @@ class ItemList extends Component {
           {match.params.type}
         </Title>
         {spinnerVisible ? (
-          <Spinner />
+          <Spinner big />
         ) : (
           <>
             <List
@@ -48,11 +48,12 @@ class ItemList extends Component {
               renderF={item => (item.name ? item.name : "Unknown")}
             />
             {next && (
-              <Button
+              <ButtonWithSpinner
                 onClick={() => fetchMaterialList(match.params.type, next)}
+                loading={materials.lists.loading}
               >
                 More
-              </Button>
+              </ButtonWithSpinner>
             )}
           </>
         )}
