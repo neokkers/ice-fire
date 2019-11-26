@@ -7,7 +7,8 @@ import {
 } from "../actions/materialsActions";
 import { withRouter } from "react-router-dom";
 import List from "../views/modules/List";
-import { Button, Title, Spinner, ButtonWithSpinner } from "../views/elements";
+import { Title, Spinner, ButtonWithSpinner } from "../views/elements";
+import { VHContainer } from "../views/layouts/Container";
 
 class ItemList extends Component {
   componentDidMount() {
@@ -41,7 +42,7 @@ class ItemList extends Component {
         {spinnerVisible ? (
           <Spinner big />
         ) : (
-          <>
+          <VHContainer vh="75">
             <List
               items={materials.lists[match.params.type].data}
               selected={materials.single[match.params.type]}
@@ -55,7 +56,7 @@ class ItemList extends Component {
                 More
               </ButtonWithSpinner>
             )}
-          </>
+          </VHContainer>
         )}
       </div>
     );

@@ -7,3 +7,8 @@ export const Container = styled.div`
   padding: 0 2rem;
   ${withFlex}
 `;
+
+export const VHContainer = styled.div`
+  height: ${props => props.vh}vh;
+  overflow-y: scroll;
+`;

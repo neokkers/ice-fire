@@ -26,6 +26,10 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     ${mainFont}
     /* ${withSpaces} */
+    -webkit-overflow-scrolling: touch;
+    &::-webkit-scrollbar {
+      width: 0;
+    }
   }
   input, button, video {
     outline: none;
