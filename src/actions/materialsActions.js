@@ -62,7 +62,7 @@ export const fetchMaterialSingle = (type, id) => {
   return dispatch => {
     dispatch(materialsSingleReq());
     apiService
-      .getResource(type, id)
+      .getSingle(type, id)
       .then(r => {
         dispatch(materialsSingleSuccess(type, r.data));
       })

@@ -77,7 +77,7 @@ export const materialsReducer = (state = initialState, action) => {
         ...state,
         single: {
           ...state.single,
-          loading: true,
+          loading: false,
           [action.payload.type]: action.payload.data
         }
       };

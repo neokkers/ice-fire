@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import ItemList from "../../containers/ItemList";
+import ItemDetails from "../../containers/ItemDetails";
 import { Container } from "../../views/layouts/Container";
 
 const InfoSection = ({ className }) => {
@@ -8,6 +9,7 @@ const InfoSection = ({ className }) => {
     <div className={className}>
       <Container>
         <ItemList />
+        <ItemDetails />
       </Container>
     </div>
   );
