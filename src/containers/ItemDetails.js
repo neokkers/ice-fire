@@ -30,7 +30,15 @@ class ItemDetails extends Component {
     const spinnerVisible =
       !materials.lists[match.params.type].data && materials.lists.loading;
 
-    return <VHContainer vh="75">details</VHContainer>;
+    return (
+      <>
+        {spinnerVisible ? (
+          <Spinner big />
+        ) : (
+          <VHContainer vh="75">wf</VHContainer>
+        )}
+      </>
+    );
   }
 }
 
