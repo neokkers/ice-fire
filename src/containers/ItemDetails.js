@@ -26,7 +26,7 @@ class ItemDetails extends Component {
 
   render() {
     const { materials, match, fetchMaterialList } = this.props;
-    const next = materials.lists[match.params.type].next;
+    // const next = materials.lists[match.params.type].next;
     const spinnerVisible =
       !materials.lists[match.params.type].data && materials.lists.loading;
 
